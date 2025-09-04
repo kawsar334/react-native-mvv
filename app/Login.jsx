@@ -8,6 +8,7 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
+import { maincolor, whiteSmoke } from '../constant/colors';
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -114,17 +115,19 @@ const styles = StyleSheet.create({
     welcomeText: {
         fontSize: 20,
         fontWeight: 600,
+        textTransform:"capitalize",
+        marginBottom:10
 
     },
     img: {
         width: "80px",
         height: "40px",
+        tintColor:maincolor
     },
     form: {
         marginBottom: 10,
         width: "90%",
         display:"flex",
-        // backgroundColor:"red"
     },
     label: {
         fontSize: 16,
@@ -133,14 +136,13 @@ const styles = StyleSheet.create({
     },
     input: {
         borderColor: "rgba(0,14,15,0.1)",
-        padding: 1,
-        marginBottom: 15,
+        marginBottom: 25,
         backgroundColor: "#fff",
         borderTopWidth: "0px",
         borderRightWidth: "0px",
         borderBottomWidth: "1px",
         borderLeftWidth: "1px",
-        padding: 7
+        padding: 10
 
     },
     password_container: {
@@ -149,15 +151,16 @@ const styles = StyleSheet.create({
     },
     passwordInput: {
         borderColor: "rgba(0,14,15,0.1)",
-        padding: 1,
-        marginBottom: 15,
+        marginBottom: 20,
         backgroundColor: "#fff",
         borderTopWidth: "0px",
         borderRightWidth: "0px",
         borderBottomWidth: "1px",
         borderLeftWidth: "1px",
-        padding: 7,
+        padding: 10,
         width: "100%",
+        marginBottom:25,
+    
 
     },
     vissible_img: {
@@ -168,8 +171,8 @@ const styles = StyleSheet.create({
         height: 16
     },
     loginBtn: {
-        backgroundColor: "black",
-        padding: 5,
+        backgroundColor: maincolor,
+        padding: 10,
         textAlign: "center",
         display: "flex",
         justifyContent: "center",
@@ -193,12 +196,12 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     q_text:{
-        backgroundColor:"#172B4D0F",
+        backgroundColor:whiteSmoke,
         width:"90%",
         textAlign:"center",
         marginHorizontal:"auto",
         marginVertical:"5px",
-        padding:5
+        padding:10
     }
 });
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { FlatList, Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import OutGoingNav from "../components/outgoing_components/OutgoingNav";
-import Sidebar from "../components/outgoing_components/Sidebar";
+import { FlatList, Image, SafeAreaView, StyleSheet, Text, View, ScrollView } from "react-native";
+import OutGoingNav from "../components/ongoing_components/OutgoingNav";
+import Sidebar from "../components/ongoing_components/Sidebar";
 const projects = [
   { id: "1", name: "Project Alpha" },
   { id: "2", name: "Project Beta" },

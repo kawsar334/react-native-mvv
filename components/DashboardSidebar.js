@@ -1,14 +1,13 @@
+
+
 import { useState } from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import DropDown from "../components/DropDown";
+import { menuItems } from "../constant/MenuItems";
+
 const DashboardSidebar = ({ open, setOpen }) => {
   const [show, setShow] = useState(false);
+
   return (
     <View style={[styles.container]}>
       <View style={styles.wrapper}>
@@ -17,88 +16,22 @@ const DashboardSidebar = ({ open, setOpen }) => {
             style={styles.icon}
             source={require("../assets/images/i1.png")}
           />
-
-          
-
-        
           <TouchableOpacity onPress={() => setOpen(!open)}>
             <Text style={styles.closetBtn_Text}>x</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.list}>
-          <Image
-            style={styles.icon}
-            // source={require("../assets/images/i1.png")}
-            source={require("../assets/images/i1.png")}
-
-          />
-          <TouchableOpacity onPress={() => setOpen(!open)}>
-            <Text>Dashboard</Text>
-          </TouchableOpacity>
-        </View>
-
-            {/* <Chart/> */}
-        <View style={styles.list}>
-          <Image
-            style={styles.icon}
-            source={require("../assets/images/i7.png")}
-          />
-          <TouchableOpacity onPress={() => setOpen(!open)}>
-            <Text>Super Admin</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* dropdown ================================== */}
-        <DropDown show={show} setShow={setShow} />
-
-        <View style={styles.list}>
-          <Image
-            style={styles.icon}
-            source={require("../assets/images/i4.png")}
-          />
-          <TouchableOpacity onPress={() => setOpen(!open)}>
-            <Text>Live Payment Cost</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.list}>
-          <Image
-            style={styles.icon}
-            source={require("../assets/images/i2.png")}
-          />
-          <TouchableOpacity onPress={() => setOpen(!open)}>
-            <Text>Quote Details</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.list}>
-          <Image
-            style={styles.icon}
-            source={require("../assets/images/i3.png")}
-          />
-          <TouchableOpacity onPress={() => setOpen(!open)}>
-            <Text>Interim Evaluation</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.list}>
-          <Image
-            style={styles.icon}
-            source={require("../assets/images/i6.png")}
-          />
-          <TouchableOpacity onPress={() => setOpen(!open)}>
-            <Text>Site Pictures & Reports</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.list}>
-          <Image
-            style={styles.icon}
-            source={require("../assets/images/i7.png")}
-          />
-          <TouchableOpacity onPress={() => setOpen(!open)}>
-            <Text>Site Pictures & Reports</Text>
-          </TouchableOpacity>
-        </View>
+        {menuItems.map((item, idx) =>
+          item.type === "dropdown" ? (
+            <DropDown key={idx} show={show} setShow={setShow} />
+          ) : (
+            <View style={styles.list} key={idx}>
+              <Image style={styles.icon} source={item.icon} />
+              <TouchableOpacity onPress={() => setOpen(!open)}>
+                <Text>{item.label}</Text>
+              </TouchableOpacity>
+            </View>
+          )
+        )}
       </View>
     </View>
   );
@@ -126,7 +59,6 @@ const styles = StyleSheet.create({
     right: 10,
     cursor: "pointer",
     zIndex: 100,
- 
     width: 30,
     height: 30,
     flexDirection: "column",
@@ -136,17 +68,14 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   closetBtn_Text: {
-    fontSize: "25px",
+    fontSize: 25,
     fontWeight: "bold",
-    color:"crimson"
-   
+    color: "crimson",
   },
   list: {
-    color: "white",
     fontSize: 18,
     marginBottom: 10,
     color: "red",
-    display: "flex",
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
@@ -157,11 +86,8 @@ const styles = StyleSheet.create({
     width: 15,
     height: 15,
   },
-
   // dropdown
   dropdownContainer: {
-    // backgroundColor: "red",
-    display: "flex",
     flexDirection: "column",
     gap: 0,
   },

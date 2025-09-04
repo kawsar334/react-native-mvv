@@ -1,58 +1,78 @@
 
-import { useRouter } from "expo-router";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import { darkGreen } from "../constant/colors";
 
-const index = () => {
-  const router = useRouter();
+
+import { useRouter } from "expo-router";
+import { Animated, Image, StyleSheet, Text, View } from "react-native";
+import { black, maincolor, white, whiteSmoke } from "../constant/colors";
+import { useEffect, useRef } from "react";
+
+const Index = () => {
+  const router = useRouter(); 
+  const logoAnim = useRef(new Animated.Value(0)).current; 
+// 
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(logoAnim, {
+          toValue: 1, 
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(logoAnim, {
+          toValue: 0,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+
+    const timing = setTimeout(() => {
+      router.push("/Login");
+    }, 5000);
+
+    return () => clearTimeout(timing);
+  }, []);
+
+  const translateY = logoAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, -10],
+  });
+
+  const opacity = logoAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, 0.8],
+  });
+
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.tinyLogo}
+      <Animated.Image
+        style={[styles.tinyLogo, { transform: [{ translateY , rotate:`${opacity}"deg"`}], opacity }]}
         source={require("../assets/images/icon.png")}
       />
       <Text style={styles.text}>TheMVV.co.uk</Text>
-      <Pressable
-        style={({pressed})=>[styles.button, pressed && styles.buttonPressed]}
-        onPress={() => router.push("/Dashboard")}
-      >
-        <Text style={styles.buttonText}>Go to Details</Text>
-      </Pressable>
-      
-      {/* <Button title="Go to Details" onPress={() => router.push("/Dashboard")} /> */}
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: darkGreen,
+    backgroundColor: maincolor,
   },
 
   tinyLogo: {
     width: 83,
     height: 47,
-    // backgroundColor:"red",
-    // borderWidth:"2px",
-    // objectFit:"cover",
     padding: 20,
+    tintColor: white,
   },
   text: {
-    color: "#ffff",
+    color: white,
     padding: 10,
-    fontSize: 16,
-  },
-   button: {
-    backgroundColor: "#fff",
-    paddingVertical: 5,
-    paddingHorizontal: 22,
-    borderRadius: 8,
-    marginTop: 16,
-  },
-  buttonPressed: {
-    backgroundColor: "red",
+    fontSize: 22,
   },
 });
-export default index;
+
+export default Index;

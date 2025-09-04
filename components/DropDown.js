@@ -26,13 +26,13 @@ export default function DropDown({ show, setShow }) {
       {show && (
         <View style={styles.dropdown_Ul}>
           <TouchableOpacity style={styles.dropdown_li}>
-            Item one{" "}
+            Item one
           </TouchableOpacity>
           <TouchableOpacity style={styles.dropdown_li}>
-            Item one{" "}
+            Item one
           </TouchableOpacity>
           <TouchableOpacity style={styles.dropdown_li}>
-            Item one{" "}
+            Item one
           </TouchableOpacity>
         </View>
       )}

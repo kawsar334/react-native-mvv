@@ -1,14 +1,15 @@
 import { useState } from "react";
 import {
-    Image,
-    SafeAreaView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import Modal from "./Modal";
 import ProjectModal from "./ProjectModal";
+import { shadowColor } from "../../constant/colors";
 
 const OutgoingNav = ({ open, setOpen }) => {
   const [show, setShow] = useState(false);
@@ -66,15 +67,17 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 5,
     backgroundColor: "white",
-    boxShadow:
-      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    boxShadow: `0 4px 8px 0 ${shadowColor}, 0 6px 20px 0 rgba(0, 0, 0, 0.19)`,
     zIndex: 100,
+    height:"auto"
+    
   },
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: 10,
+    padding: 10, 
+    height:60
   },
   bar: {
     width: 25,
