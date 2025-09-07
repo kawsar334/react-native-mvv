@@ -4,7 +4,8 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
-  View
+  View,
+  ScrollView
 } from "react-native";
 import Chart from "../components/Chart";
 import DashboardNav from "../components/DashboardNav";
@@ -13,7 +14,7 @@ const Dashboard = () => {
   return (
     <SafeAreaView style={styles.container}>
       <DashboardNav open={open} setOpen={setOpen} />
-      <View style={[styles.wrapper, { zIndex: open ? -1 : 50 }]}>
+      <ScrollView style={[styles.wrapper, { zIndex: open ? -1 : 50 }]}>
         <View style={styles.topContainer}>
           <View style={styles.item}>
             <View style={styles.itemLeft}>
@@ -82,7 +83,7 @@ const Dashboard = () => {
 {/* ============================== */}
         <Chart />
 {/* ============================== */}
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     display: "flex",
+    paddingTop:50
   },
   topContainer: {
     display: "flex",

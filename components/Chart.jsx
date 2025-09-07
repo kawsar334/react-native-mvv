@@ -1,45 +1,82 @@
-// import { LineChart } from 'react-native-wagmi-charts';
 
-// const data = [
-//   {
-//     timestamp: 1625945400000,
-//     value: 33575.25,
-//   },
-//   {
-//     timestamp: 1625946300000,
-//     value: 33545.25,
-//   },
-//   {
-//     timestamp: 1625947200000,
-//     value: 33510.25,
-//   },
-//   {
-//     timestamp: 1625948100000,
-//     value: 33215.25,
-//   },
-// ];
 
-// function Chart() {
-//   return (
-//     <LineChart.Provider data={data}>
-//       <LineChart>
-//         <LineChart.Path />
-//       </LineChart>
-//     </LineChart.Provider>
-//   );
-// }
+import React, { Component } from "react";
+import { Text, View, StyleSheet } from "react-native";
+import {
+  BarChart,
+  LineChart,
+  PieChart,
+  PopulationPyramid,
+  RadarChart,
+} from "react-native-gifted-charts";
+import { maincolor } from "../constant/colors";
+import DashboardSideBar from "./DashboardSidebar";
+import * as Animatable from 'react-native-animatable';
+// const data = [{ value: 50 }, { value: 80 }, { value: 90 }, { value: 70 }];
+ const data = [
 
-// export default Chart;
+    {value: 15, label: 'Mon'},
 
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+    {value: 30, label: 'Tue'},
 
- const  Chart = () => {
-    return (
-      <View>
-        <Text> chart </Text>
-      </View>
-    )
-}
+    {value: -23, label: 'Wed'},
 
-export default Chart
+    {value: 40, label: 'Thu'},
+
+    {value: -16, label: 'Fri'},
+
+    {value: 40, label: 'Sat'},
+
+  ];
+const Chart = () => {
+
+  const barData = [
+    { value: 250, label: "M" },
+    { value: 500, label: "T", frontColor: "#177AD5" },
+    { value: 745, label: "W", frontColor: "#177AD5" },
+    { value: 320, label: "T" },
+    { value: 600, label: "F", frontColor: "#177AD5" },
+    { value: 256, label: "S" },
+    { value: 300, label: "S" },
+  ];
+  return (
+    <Animatable.View animation="slideInDown" iterationCount={1} direction="alternate" style={styles.container}>
+    
+      <LineChart
+        data={data}
+        areaChart
+        color={maincolor}
+        thickness={3}
+        dataPointsColor={"red"}
+        barWidth={100}
+        isAnimated
+      />
+      <BarChart
+        barWidth={22}
+        noOfSections={3}
+        barBorderRadius={4}
+        frontColor="lightgray"
+        data={barData}
+        yAxisThickness={0}
+        xAxisThickness={0}
+      />
+        <PieChart data={data} />   
+    </Animatable.View>
+  );
+};
+
+
+const styles = StyleSheet.create({
+  container:{
+    width:"100vw",
+    flex:1,
+    marginTop:50,
+    display:"flex",
+    gap:30,
+    justifyContent:"center",
+    alignItems:"center",
+    padding:10
+  }
+})
+
+export default Chart;

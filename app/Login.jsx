@@ -9,6 +9,7 @@ import {
     View
 } from 'react-native';
 import { maincolor, whiteSmoke } from '../constant/colors';
+import * as Animatable from 'react-native-animatable';
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -29,12 +30,13 @@ const Login = () => {
             </View>
             {/* ==========second container  */}
             <View style={styles.secondContainer}>
-                <Text style={styles.loginText1}>Login to your account</Text>
-                <Text style={styles.loginText2}>Please enter your email & password to continue.</Text>
+                <Animatable.Text  animation="zoomInUp"   style={styles.loginText1}>Login to your account</Animatable.Text>
+                <Animatable.Text  animation="zoomInUp"   style={styles.loginText2}>Please enter your email & password to continue.</Animatable.Text>
             </View>
             {/* ============form */}
             <View style={styles.form}>
-                <Text style={styles.label}>Email</Text>
+                {/* Animatable.Text  animation="zoomInUp" */}
+                <Animatable.Text  animation="zoomInUp" style={styles.label}>Email</Animatable.Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter your email"
@@ -42,7 +44,7 @@ const Login = () => {
                     onChangeText={setEmail}
                 />
 
-                <Text style={styles.label}>Password</Text>
+                <Animatable.Text  animation="zoomInUp"  style={styles.label}>Password</Animatable.Text >
                 <Text style={styles.password_container} >
                     <TextInput
                         style={styles.passwordInput}
@@ -66,10 +68,10 @@ const Login = () => {
                 <TouchableOpacity
                 style={styles.link}
                  onPress={()=>{ Linking.openURL("https://www.google.com")}}>
-                    <Text style={styles.link}>Go to Google</Text>
+                    <Animatable.Text animation="zoomInUp" style={styles.link}>Go to Google</Animatable.Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={[styles.btn, styles.btnSecondary]}>
-                    <Text style={styles.q_text}>Instant Quote</Text>
+                    <Animatable.Text animation="zoomInUp" style={styles.q_text}>Instant Quote</Animatable.Text>
                 </TouchableOpacity>
             </View>
             {/* ====================== */}

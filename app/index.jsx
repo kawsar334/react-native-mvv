@@ -5,7 +5,7 @@ import { useRouter } from "expo-router";
 import { Animated, Image, StyleSheet, Text, View } from "react-native";
 import { black, maincolor, white, whiteSmoke } from "../constant/colors";
 import { useEffect, useRef } from "react";
-
+import * as Animatable from 'react-native-animatable';
 const Index = () => {
   const router = useRouter(); 
   const logoAnim = useRef(new Animated.Value(0)).current; 
@@ -43,13 +43,16 @@ const Index = () => {
     outputRange: [1, 0.8],
   });
 
+
   return (
     <View style={styles.container}>
       <Animated.Image
         style={[styles.tinyLogo, { transform: [{ translateY , rotate:`${opacity}"deg"`}], opacity }]}
         source={require("../assets/images/icon.png")}
       />
-      <Text style={styles.text}>TheMVV.co.uk</Text>
+
+      {/* <Text style={styles.text}>TheMVV.co.uk</Text> */}
+      <Animatable.Text  animation="zoomInUp" style={styles.text}>TheMVV.co.uk</Animatable.Text>
     </View>
   );
 };

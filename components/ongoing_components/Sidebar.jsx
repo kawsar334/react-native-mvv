@@ -22,14 +22,9 @@ const Sidebar = ({ open, setOpen }) => {
                   style={{ width: 16, height: 16 }}
                   source={item?.icon}
                   />
-                {item?.type =="dropdown"?<Text style={{display:"none"}}>sadfa</Text>: <Text>{item?.label}</Text>}
+                {item?.type =="dropdown"?<Text style={{display:"none"}}></Text>: <Text>{item?.label}</Text>}
               </View>
-              {/* <View>
-                <Image
-                  style={{ width: 25, height: 25 }}
-                  source={require("../../assets/images/i13.png")}
-                  />
-              </View> */}
+              
             </View>}
                   </>
           )}

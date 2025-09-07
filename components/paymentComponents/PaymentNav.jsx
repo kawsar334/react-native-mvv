@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import { maincolor, shadowColor, white } from "../../constant/colors";
-const PaymentNav = ({open, setOpen}) => {
+import * as Animatable from "react-native-animatable";
+const PaymentNav = ({ open, setOpen }) => {
   return (
     <View style={styles.navbar}>
-      <View style={styles.navbarLeft}>
-        <TouchableOpacity onPress={()=>setOpen(!open)}>
+      <Animatable.View
+        animation="slideInDown"
+        iterationCount={1}
+        direction="alternate"
+        style={styles.navbarLeft}
+      >
+        <TouchableOpacity onPress={() => setOpen(!open)}>
           <Image
             style={styles.bar}
             source={require("../../assets/images/bar.png")}
           />
         </TouchableOpacity>
         <Text style={styles.text}>Payment Tracker </Text>
-      </View>
+      </Animatable.View>
     </View>
   );
 };
@@ -31,7 +37,7 @@ const styles = StyleSheet.create({
     left: 0,
     width: "100%",
     zIndex: 100,
-    boxShadow:`0 0 5px ${shadowColor}`
+    boxShadow: `0 0 5px ${shadowColor}`,
   },
   navbarLeft: {
     display: "flex",

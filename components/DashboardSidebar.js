@@ -12,12 +12,9 @@ const DashboardSidebar = ({ open, setOpen }) => {
     <View style={[styles.container]}>
       <View style={styles.wrapper}>
         <View style={styles.closeBtn}>
-          <Image
-            style={styles.icon}
-            source={require("../assets/images/i1.png")}
-          />
+       
           <TouchableOpacity onPress={() => setOpen(!open)}>
-            <Text style={styles.closetBtn_Text}>x</Text>
+            <Text style={styles.closetBtn_Text}>Close</Text>
           </TouchableOpacity>
         </View>
         {menuItems.map((item, idx) =>
@@ -47,6 +44,7 @@ const styles = StyleSheet.create({
     height: "100vh",
     backgroundColor: "white",
     zIndex: 50,
+    padding:10
   },
   wrapper: {
     flex: 1,
@@ -59,16 +57,19 @@ const styles = StyleSheet.create({
     right: 10,
     cursor: "pointer",
     zIndex: 100,
-    width: 30,
-    height: 30,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
     backgroundColor: "white",
+    borderWidth:1,
+    borderColor:"red",
+    padding:3,
+    borderRadius:5,
+
   },
   closetBtn_Text: {
-    fontSize: 25,
+    fontSize: 16,
     fontWeight: "bold",
     color: "crimson",
   },

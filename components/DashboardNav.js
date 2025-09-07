@@ -11,8 +11,6 @@ export default function DashboardNav({ open, setOpen }) {
     <View style={[styles.navContainer]}>
       {open && <DashboardSideBar open={open} setOpen={setOpen} />}
       <View style={[styles.wrapper]}>
-        {/* {display:open?"none":"flex"} */}
-
         <View style={styles.leftContainer}>
           <TouchableOpacity
             onPress={() => {
@@ -37,6 +35,8 @@ const styles = StyleSheet.create({
     width: "100%",
     display: "flex",
     position: "relative",
+    height:60,
+
   },
   wrapper: {
     display: "flex",
@@ -44,6 +44,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 5,
     justifyContent: "space-between",
+    height:"100%",
+    padding:20
   },
   leftContainer: {
     display: "flex",

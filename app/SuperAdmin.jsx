@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   closeBtn:{
     width:"100%",
     backgroundColor:"crimson",
-    padding:10,
+    padding:5,
     borderRadius:3,
     display:"flex",
     justifyContent:"center",
