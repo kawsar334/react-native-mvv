@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { shadowColor, white } from "../constant/colors";
-
+import * as Animatable from 'react-native-animatable';
 export default function SuperAdmin() {
   const adminList = [
     {
@@ -47,7 +47,7 @@ export default function SuperAdmin() {
   };
 
   const renderItem = ({ item }) => (
-    <View style={styles.card}>
+    <Animatable.View animation="zoomInUp"   style={styles.card}>
       {/* Avatar Left===================== */}
       <Image source={{ uri: item.avatar }} style={styles.avatar} />
 
@@ -64,7 +64,7 @@ export default function SuperAdmin() {
       >
         <Text style={styles.menuText}>⋮</Text>
       </TouchableOpacity>
-    </View>
+    </Animatable.View>
   );
 
   return (
@@ -72,7 +72,7 @@ export default function SuperAdmin() {
       <Text style={styles.title}>Admin List</Text>
       {/* =========Modal */}
       {show && (
-        <View style={styles.modal}>
+        <Animatable.View animation="zoomInUp" style={styles.modal}>
           <View style={styles.modalWrapper}>
             <Image source={{ uri: data?.avatar }} style={styles.modalAvatar} />
             <Text style={styles.name}>{data?.name}</Text>
@@ -83,7 +83,7 @@ export default function SuperAdmin() {
               close
             </TouchableOpacity>
           </View>
-        </View>
+        </Animatable.View>
       )}
       {/* modal=========== */}
       <FlatList

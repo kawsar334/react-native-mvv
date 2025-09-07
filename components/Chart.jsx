@@ -10,7 +10,6 @@ import {
   RadarChart,
 } from "react-native-gifted-charts";
 import { maincolor } from "../constant/colors";
-import DashboardSideBar from "./DashboardSidebar";
 import * as Animatable from 'react-native-animatable';
 // const data = [{ value: 50 }, { value: 80 }, { value: 90 }, { value: 70 }];
  const data = [

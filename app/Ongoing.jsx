@@ -7,6 +7,9 @@ const projects = [
   { id: "2", name: "Project Beta" },
   { id: "3", name: "Project Gamma" },
 ];
+import * as Animatable from 'react-native-animatable';
+import { white } from "../constant/colors";
+
 const Ongoing = () => {
   const [open, setOpen] = useState(false);
 
@@ -24,7 +27,7 @@ const Ongoing = () => {
                   data={projects}
                   keyextractor={(item) => item.id}
                   renderItem={({ item }) => (
-                    <View style={styles.item}>
+                    <Animatable.View animation="slideInDown" iterationCount={1} direction="alternate"  style={styles.item}>
                       <View style={styles.itemLeft}>
                         <Image
                           style={{ width: 16, height: 16 }}
@@ -38,7 +41,7 @@ const Ongoing = () => {
                           source={require("../assets/images/i13.png")}
                         />
                       </View>
-                    </View>
+                    </Animatable.View>
                   )}
                 />
               </View>
@@ -54,9 +57,9 @@ const styles = StyleSheet.create({
   },
 
   wrapper: {
-    // backgroundColor: "gray",
     flex: 1,
     padding: 10,
+    backgroundColor:white
   },
    itemsContainer: {
   backgroundColor: "white",
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: 10,
     padding: 10,
-    backgroundColor:"#F1F1F1",
+    backgroundColor:white,
     marginBottom:5,
     borderRadius:5, 
     boxShadow: "1px 1px 10px rgba(0,0,0,0.2)",

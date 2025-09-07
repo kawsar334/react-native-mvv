@@ -1,11 +1,12 @@
 
 
 
-import { useRouter } from "expo-router";
-import { Animated, Image, StyleSheet, Text, View } from "react-native";
+import { Link, useRouter } from "expo-router";
+import { Animated, Image, StyleSheet, Text, View, } from "react-native";
 import { black, maincolor, white, whiteSmoke } from "../constant/colors";
 import { useEffect, useRef } from "react";
 import * as Animatable from 'react-native-animatable';
+import {menuItems} from "../constant/MenuItems"
 const Index = () => {
   const router = useRouter(); 
   const logoAnim = useRef(new Animated.Value(0)).current; 
@@ -44,8 +45,20 @@ const Index = () => {
   });
 
 
+  
+
   return (
     <View style={styles.container}>
+
+      <View style={styles.menuContainer}>
+        {menuItems?.map((item)=>(
+          <View  style={styles.menus}>
+            <Link style={styles.menu} href={`/${item?.link}`}>
+            <Image source={item?.icon} style={styles.icon}/>
+            </Link>
+          </View>
+        ))}
+      </View>
       <Animated.Image
         style={[styles.tinyLogo, { transform: [{ translateY , rotate:`${opacity}"deg"`}], opacity }]}
         source={require("../assets/images/icon.png")}
@@ -76,6 +89,28 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 22,
   },
+
+  // 
+  menuContainer:{
+    width:"100%",
+     display:"flex",
+    flexDirection:"row",
+    justifyContent:"center",
+    alignItems:"center",
+    // backgroundColor:"gray",
+    marginBottom:100
+  },
+  menus:{
+    margin:1
+  },
+  menu:{
+  },
+  icon:{
+    tintColor:white,
+    width:25,
+    height:25,
+    margin:10
+  }
 });
 
 export default Index;

@@ -11,6 +11,7 @@ import {
 import QouteNav from "../components/qoute_components/QouteNav";
 import { white, whiteSmoke, shadowColor } from "../constant/colors";
 import QouteSidebar from "../components/qoute_components/QouteSidebar";
+import * as Animatable from 'react-native-animatable';
 const quotes = [
   { id: 1, name: "Document", amount: "1,200" },
   { id: 2, name: "Document", amount: "2,500" },
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
     position: "relative",
   },
-
+  
   itemsContainer: {
     backgroundColor: white,
     display: "flex",

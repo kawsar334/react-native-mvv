@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View, SafeAreaView , Image} from "react-native";
 import { buttonGreen, white, whiteSmoke } from "../constant/colors";
-
+import * as Animatable from 'react-native-animatable';
 const Client = () => {
   return (
     <SafeAreaView style={styles.container}>
-        <View style={styles.wrapper}>
-
+        <Animatable.View animation="zoomInUp" style={styles.wrapper}>
       <Image source={require("../assets/images/i5.png")} />
-      <Text style={styles.text}>File data will preview here</Text>
-        </View>
+      <Animatable.Text animation="zoomInUp" style={styles.text}>File data will preview here</Animatable.Text>
+        </Animatable.View>
     </SafeAreaView>
   );
 };

@@ -57,6 +57,8 @@ const Documents = () => {
 const styles = StyleSheet.create({
   container: {
     position: "relative",
+    // borderWidth:1,
+    // borderColor:"red"
   },
   wrapper: {
     flex: 1,
